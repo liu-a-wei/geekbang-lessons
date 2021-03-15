@@ -15,7 +15,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.metamodel.Metamodel;
 
-import org.geektimes.web.mvc.context.ComponentContext;
+import org.geektimes.context.ComponentContext;
+
 
 /**
  * 委派实现（静态 AOP 实现）

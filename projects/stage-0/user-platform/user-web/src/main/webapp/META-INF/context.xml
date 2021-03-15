@@ -48,6 +48,8 @@
 	<!-- Tomcat JNDI 配置 -->
 	<Environment name="maxValue" value="12"
 				 type="java.lang.Integer" override="false"/>
+
+
 	<Resource name="bean/ContentDestoryed" auth="Container"
 			  type="org.geektimes.projects.user.web.system.ContentDestoryed"
 			  factory="org.apache.naming.factory.BeanFactory" />

@@ -13,9 +13,9 @@ import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.geektimes.context.ComponentContext;
 import org.geektimes.projects.user.domain.User;
 import org.geektimes.projects.user.sql.DBConnectionManager;
-import org.geektimes.web.mvc.context.ComponentContext;
 import org.geektimes.web.mvc.function.ThrowableFunction;
 
 import static org.apache.commons.lang.ClassUtils.wrapperToPrimitive;

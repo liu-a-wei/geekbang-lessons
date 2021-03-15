@@ -1,10 +1,10 @@
 package org.geektimes.configuration.microprofile.config.source;
 
-import org.eclipse.microprofile.config.spi.ConfigSource;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import org.eclipse.microprofile.config.spi.ConfigSource;
 
 public class JavaSystemPropertiesConfigSource implements ConfigSource {
 
