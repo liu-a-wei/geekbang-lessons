@@ -8,6 +8,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import org.eclipse.microprofile.config.Config;
+import org.eclipse.microprofile.config.ConfigProvider;
 import org.geektimes.context.ComponentContext;
 import org.geektimes.projects.user.domain.User;
 import org.geektimes.projects.user.sql.DBConnectionManager;
@@ -31,6 +33,14 @@ public class TestingListener implements ServletContextListener {
         logger.info("所有的 JNDI 组件名称：[");
         context.getComponentNames().forEach(logger::info);
         logger.info("]");
+
+        readConfigProperties();
+    }
+
+    private void readConfigProperties() {
+        Config config = ConfigProvider.getConfig();
+        String applicationName = config.getValue("application.name", String.class);
+        logger.info("applicationName:"+applicationName);
     }
 
     private void testPropertyFromServletContext(ServletContext servletContext) {
