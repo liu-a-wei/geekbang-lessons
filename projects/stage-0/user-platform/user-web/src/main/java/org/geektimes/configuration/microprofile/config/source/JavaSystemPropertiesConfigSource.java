@@ -9,8 +9,7 @@ import org.eclipse.microprofile.config.spi.ConfigSource;
 public class JavaSystemPropertiesConfigSource implements ConfigSource {
 
     /**
-     * Java 系统属性最好通过本地变量保存，使用 Map 保存，尽可能运行期不去调整
-     * -Dapplication.name=user-web
+     * Java 系统属性最好通过本地变量保存，使用 Map 保存，尽可能运行期不去调整 -Dapplication.name=user-web
      */
     private final Map<String, String> properties;
 
@@ -33,4 +32,10 @@ public class JavaSystemPropertiesConfigSource implements ConfigSource {
     public String getName() {
         return "Java System Properties";
     }
+
+    @Override
+    public int getOrdinal() {
+        return 2;
+    }
+
 }

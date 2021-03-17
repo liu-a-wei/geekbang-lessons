@@ -1,11 +1,11 @@
 package org.geektimes.configuration.microprofile.config;
 
+import java.util.Iterator;
+import java.util.ServiceLoader;
+
 import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.spi.ConfigBuilder;
 import org.eclipse.microprofile.config.spi.ConfigProviderResolver;
-
-import java.util.Iterator;
-import java.util.ServiceLoader;
 
 public class DefaultConfigProviderResolver extends ConfigProviderResolver {
 
@@ -36,11 +36,9 @@ public class DefaultConfigProviderResolver extends ConfigProviderResolver {
 
     @Override
     public void registerConfig(Config config, ClassLoader classLoader) {
-
     }
 
     @Override
     public void releaseConfig(Config config) {
-
     }
 }
