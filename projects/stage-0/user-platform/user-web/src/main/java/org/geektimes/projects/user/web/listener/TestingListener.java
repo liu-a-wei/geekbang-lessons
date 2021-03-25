@@ -1,15 +1,16 @@
 package org.geektimes.projects.user.web.listener;
 
-import org.geektimes.context.ComponentContext;
-import org.geektimes.projects.user.domain.User;
-import org.geektimes.projects.user.sql.DBConnectionManager;
+import java.util.logging.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import java.util.logging.Logger;
+
+import org.geektimes.context.JndiComponentContext;
+import org.geektimes.projects.user.domain.User;
+import org.geektimes.projects.user.sql.DBConnectionManager;
 
 /**
  * 测试用途
@@ -21,7 +22,7 @@ public class TestingListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        ComponentContext context = ComponentContext.getInstance();
+        JndiComponentContext context = JndiComponentContext.getInstance();
         DBConnectionManager dbConnectionManager = context.getComponent("bean/DBConnectionManager");
         dbConnectionManager.getConnection();
         testPropertyFromServletContext(sce.getServletContext());
@@ -38,7 +39,7 @@ public class TestingListener implements ServletContextListener {
                 + servletContext.getInitParameter(propertyName));
     }
 
-    private void testPropertyFromJNDI(ComponentContext context) {
+    private void testPropertyFromJNDI(JndiComponentContext context) {
         String propertyName = "maxValue";
         logger.info("JNDI Property[" + propertyName + "] : "
                 + context.lookupComponent(propertyName));
@@ -53,8 +54,8 @@ public class TestingListener implements ServletContextListener {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
         entityManager.persist(user);
+//        System.out.println(entityManager.find(User.class, user.getId()));
         transaction.commit();
-        System.out.println(entityManager.find(User.class, user.getId()));
     }
 
     @Override

@@ -1,6 +1,5 @@
 package org.geektimes.projects.user.repository;
 
-
 import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
@@ -13,10 +12,10 @@ import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.geektimes.context.JndiComponentContext;
+import org.geektimes.function.ThrowableFunction;
 import org.geektimes.projects.user.domain.User;
 import org.geektimes.projects.user.sql.DBConnectionManager;
-import org.geektimes.web.mvc.context.ComponentContext;
-import org.geektimes.web.mvc.function.ThrowableFunction;
 
 import static org.apache.commons.lang.ClassUtils.wrapperToPrimitive;
 
@@ -38,7 +37,7 @@ public class DatabaseUserRepository implements UserRepository {
     private final DBConnectionManager dbConnectionManager;
 
     public DatabaseUserRepository() {
-        this.dbConnectionManager = ComponentContext.getInstance().getComponent("bean/DBConnectionManager");
+        this.dbConnectionManager = JndiComponentContext.getInstance().getComponent("bean/DBConnectionManager");
     }
 
     private Connection getConnection() {

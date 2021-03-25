@@ -6,7 +6,7 @@ import java.sql.Connection;
 import static java.sql.Connection.TRANSACTION_READ_COMMITTED;
 
 /**
- * 本地事务
+ * 本地
  */
 @Documented
 @Target(ElementType.METHOD) // 仅支持方法级别
@@ -20,6 +20,7 @@ public @interface LocalTransactional {
     int PROPAGATION_NESTED = 6;
 
     /**
+     *
      * 事务传播
      * @return
      */

@@ -19,7 +19,7 @@ import javax.ws.rs.HttpMethod;
 import javax.ws.rs.Path;
 
 import org.apache.commons.lang.StringUtils;
-import org.geektimes.web.mvc.context.ComponentContext;
+import org.geektimes.context.ComponentContext;
 import org.geektimes.web.mvc.controller.Controller;
 import org.geektimes.web.mvc.controller.PageController;
 import org.geektimes.web.mvc.controller.RestController;
