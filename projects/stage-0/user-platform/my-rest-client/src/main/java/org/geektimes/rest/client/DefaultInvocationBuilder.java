@@ -1,12 +1,13 @@
 package org.geektimes.rest.client;
 
+import java.util.*;
+import java.util.stream.Stream;
+
 import javax.ws.rs.HttpMethod;
 import javax.ws.rs.client.AsyncInvoker;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.*;
-import java.util.*;
-import java.util.stream.Stream;
 
 public class DefaultInvocationBuilder implements Invocation.Builder {
 
@@ -252,7 +253,7 @@ public class DefaultInvocationBuilder implements Invocation.Builder {
 
     @Override
     public Invocation buildPost(Entity<?> entity) {
-        return null;
+        return new HttpPostInvocation(uriBuilder.build(), headers,entity);
     }
 
     @Override

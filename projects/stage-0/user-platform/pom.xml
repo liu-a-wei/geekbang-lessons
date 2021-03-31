@@ -12,11 +12,11 @@
 
     <modules>
         <module>my-web-mvc</module>
-        <module>user-web</module>
         <module>my-configuration</module>
         <module>my-dependency-injection</module>
         <module>my-rest-client</module>
         <module>my-reactive-messaging</module>
+        <module>user-web</module>
     </modules>
 
     <properties>
