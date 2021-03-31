@@ -11,9 +11,9 @@ public class RestClientDemo {
         Client client = ClientBuilder.newClient();
         // Get请求
         Response responseGet = client
-                .target("https://www.baidu.com/")      // WebTarget
-                .request() // Invocation.Builder
-                .get();                                     //  Response
+                .target("https://www.baidu.com/")
+                .request()
+                .get();
 
         String contentGet = responseGet.readEntity(String.class);
         System.out.println(contentGet);
