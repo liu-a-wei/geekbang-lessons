@@ -1,10 +1,6 @@
 package org.geektimes.projects.user.orm.jpa;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import org.geektimes.context.ClassicComponentContext;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.*;
@@ -13,8 +9,11 @@ import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.metamodel.Metamodel;
-
-import org.geektimes.context.JndiComponentContext;
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 /**
  * 委派实现（静态 AOP 实现）
@@ -59,7 +58,7 @@ public class DelegatingEntityManager implements EntityManager {
             throw new RuntimeException(e);
         }
         // 增加 JNDI 引用处理
-        JndiComponentContext componentContext = JndiComponentContext.getInstance();
+        ClassicComponentContext componentContext = ClassicComponentContext.getInstance();
 
         for (String propertyName : properties.stringPropertyNames()) {
             String propertyValue = properties.getProperty(propertyName);
